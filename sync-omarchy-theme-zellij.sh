@@ -28,7 +28,7 @@ if [ -f "$OUTPUT_FILE" ]; then
     echo "  Using existing theme file..."
 
     # Update config.kdl to use the existing theme
-    ZELLIJ_CONFIG="$HOME/Dotfiles/zellij/config.kdl"
+    ZELLIJ_CONFIG="$HOME/.config/zellij/config.kdl"
     if [ -f "$ZELLIJ_CONFIG" ]; then
         sed -i "s/^theme \".*\"/theme \"$THEME_NAME\"/" "$ZELLIJ_CONFIG"
         echo "✓ Updated config.kdl to use theme: $THEME_NAME"
@@ -104,7 +104,7 @@ echo "✓ Generated Zellij theme: $OUTPUT_FILE"
 echo "✓ Theme name: $THEME_NAME"
 
 # Update config.kdl to use the new theme
-ZELLIJ_CONFIG="$HOME/Dotfiles/zellij/config.kdl"
+ZELLIJ_CONFIG="$HOME/.config/zellij/config.kdl"
 if [ -f "$ZELLIJ_CONFIG" ]; then
     sed -i "s/^theme \".*\"/theme \"$THEME_NAME\"/" "$ZELLIJ_CONFIG"
     echo "✓ Updated config.kdl to use theme: $THEME_NAME"

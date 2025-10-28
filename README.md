@@ -4,7 +4,7 @@ Automatically sync [Omarchy](https://github.com/matsouto/omarchy) theme colors t
 
 ## What This Does
 
-This project provides automatic theme synchronization between Omarchy (a theme manager for terminal applications) and Zellij (a terminal multiplexer). When you switch themes using Omarchy, your Zellij theme automatically updates to match.
+This project provides automatic theme synchronization between Omarchy and Zellij. When you switch themes using Omarchy, your Zellij theme automatically updates to match.
 
 The setup consists of two components:
 
@@ -33,6 +33,7 @@ chmod +x ~/.config/omarchy/hooks/theme-set
 ### 3. Verify the setup
 
 When you change themes using Omarchy, the hook will automatically:
+- Script will check if there is already generated theme and use that
 - Generate a new Zellij theme file in `~/.config/zellij/themes/`
 - Update your Zellij config to use the new theme
 
@@ -44,13 +45,6 @@ You can also run the sync script manually at any time:
 ~/.config/zellij/sync-omarchy-theme-zellij.sh
 ```
 
-## Requirements
-
-- [Omarchy](https://github.com/matsouto/omarchy) - Terminal theme manager
-- [Zellij](https://zellij.dev/) - Terminal multiplexer
-- Bash shell
-
-## How It Works
 
 1. Omarchy stores the current theme's Alacritty colors in `~/.config/omarchy/current/theme/alacritty.toml`
 2. When you switch themes, Omarchy calls the `theme-set` hook
@@ -62,6 +56,6 @@ You can also run the sync script manually at any time:
 
 ## Notes
 
-- The script expects your Zellij config at `~/Dotfiles/zellij/config.kdl` (modify line 31 and 107 in the script if your config is elsewhere)
+- The script expects your Zellij config at `~/.config/zellij/config.kdl` (modify line 31 and 107 in the script if your config is elsewhere)
 - If a theme file already exists, the script will reuse it instead of regenerating
 - The script uses the cursor color for Zellij's orange color, falling back to cyan if no cursor color is defined
