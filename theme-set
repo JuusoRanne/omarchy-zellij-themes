@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# This hook is called when an Omarchy theme is set
+# Automatically sync the new theme to Zellij
+
+# Run the Zellij theme sync script
+SYNC_SCRIPT="$HOME/.config/zellij/sync_omarchy_theme_zellij.sh"
+if [[ -x "$SYNC_SCRIPT" ]]; then
+  "$SYNC_SCRIPT"
+fi
+
+# Optional: Notify user
+# notify-send "Theme Changed" "Synced $1 theme to Zellij"
